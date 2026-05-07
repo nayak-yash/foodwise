@@ -1,0 +1,16 @@
+fastapi==0.115.12
+uvicorn==0.34.2
+httpx==0.28.1
+langgraph==0.3.34
+langgraph-checkpoint-postgres==2.0.21
+langchain-core==0.3.59
+langchain-openai==0.3.16
+psycopg[binary,pool]==3.2.9
+aiokafka==0.12.0
+fastembed==0.6.1
+pandas==2.2.3
+prometheus-client==0.21.1
+opentelemetry-sdk==1.32.1
+opentelemetry-exporter-otlp-proto-http==1.32.1
+opentelemetry-instrumentation-fastapi==0.53b1
+opentelemetry-instrumentation-httpx==0.53b1

@@ -1,0 +1,36 @@
+{
+  "uid": "restaurantops",
+  "title": "Foodwise / Operations",
+  "schemaVersion": 40,
+  "version": 1,
+  "refresh": "10s",
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "API requests per second",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum by (method, status) (rate(restaurantops_http_requests_total[5m]))",
+          "legendFormat": "{{method}} {{status}}"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "Agent event outcomes",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum by (outcome) (restaurantops_agent_events_total)",
+          "legendFormat": "{{outcome}}"
+        }
+      ]
+    }
+  ],
+  "time": { "from": "now-1h", "to": "now" }
+}

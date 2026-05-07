@@ -1,0 +1,15 @@
+# Optional build override for networks using an organization-managed TLS CA.
+# EXTRA_CA_CERT=/absolute/path/ca.pem docker compose -f docker-compose.yml -f docker-compose.certs.yml build
+services:
+  backend:
+    build:
+      secrets: [extra_ca]
+  intelligence:
+    build:
+      secrets: [extra_ca]
+  frontend:
+    build:
+      secrets: [extra_ca]
+secrets:
+  extra_ca:
+    file: ${EXTRA_CA_CERT:?Set EXTRA_CA_CERT to a trusted PEM certificate bundle}
